@@ -1,3 +1,4 @@
+import { CidadeEstadoService } from './../cadastro/cidade-estado.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -10,13 +11,35 @@ import { PsicologoService } from './psicologo.service';
 })
 export class CadastroPsicologoComponent implements OnInit {
 
+  estados = this.cidadeEstadoService.allEstados();
+  cidades: Array<any>;
+
+  experiencias = [
+      { experiencia: 'Adolescência' },
+      { experiencia: 'Ansiedade' },
+      { experiencia: 'Assédio Moral' },
+      { experiencia: 'Autoconhecimento' },
+      { experiencia: 'Câncer' },
+      { experiencia: 'Conflitos Amorosos' },
+      { experiencia: 'Conflitos Familiares' },
+      { experiencia: 'Depressão' },
+      { experiencia: 'Estresse' },
+      { experiencia: 'Idade Adulta' },
+      { experiencia: 'Medos' },
+      { experiencia: 'Morte e Luto' },
+      { experiencia: 'Orientação Profissional' },
+      { experiencia: 'Separação' },
+      { experiencia: 'Traumas' },
+  ];
+
   cadastroPsicologo: FormGroup;
 
   imagemBase64: string;
 
   constructor(private fb: FormBuilder,
               private _psicologoService: PsicologoService,
-              private _router: Router) {}
+              private _router: Router,
+              private cidadeEstadoService: CidadeEstadoService) {}
 
   ngOnInit(): void {
     this.formularioCliente();
@@ -24,6 +47,12 @@ export class CadastroPsicologoComponent implements OnInit {
 
   onSubmit(): void {
     if(this.cadastroPsicologo.valid) {
+      const idEstado = this.cadastroPsicologo.get('estado');
+      this.cidadeEstadoService.allEstados().filter( (estadoFilter) => {
+        if(idEstado?.value === estadoFilter.ID) {
+          idEstado?.patchValue(estadoFilter.Nome);
+        }
+      });
       this._psicologoService.save(this.cadastroPsicologo.value).subscribe({
         next: psicologo => {
           alert("Salvo com sucesso.")
@@ -73,8 +102,8 @@ export class CadastroPsicologoComponent implements OnInit {
       ],
       telefone: ['', Validators.compose([
           Validators.required,
-          Validators.maxLength(15),
-          Validators.minLength(15)
+          Validators.maxLength(11),
+          Validators.minLength(10)
         ])
       ],
       crp: ['', Validators.compose([
@@ -87,7 +116,7 @@ export class CadastroPsicologoComponent implements OnInit {
           Validators.required
         ])
       ],
-      experiencia: ['', Validators.compose([
+      experiencia: [null, Validators.compose([
           Validators.required,
           Validators.maxLength(350)
         ])
@@ -100,7 +129,7 @@ export class CadastroPsicologoComponent implements OnInit {
           Validators.required
         ])
       ],
-      cidade: ['', Validators.compose([
+      cidade: [{value: '', disabled: true}, Validators.compose([
           Validators.required
         ])
       ],
@@ -114,6 +143,18 @@ export class CadastroPsicologoComponent implements OnInit {
         ])
       ]
     })
+  }
+
+  hasEstado(): void {
+    const estado = this.cadastroPsicologo.get('estado')?.value;
+    if(estado || estado !== '') {
+      this.cadastroPsicologo.controls['cidade'].enable();
+      console.log(typeof estado)
+      const cidadesEncontradas = this.cidadeEstadoService.getCidadesPeloIdEstado(estado);
+      this.cidades = cidadesEncontradas;
+      return;
+    }
+    this.cadastroPsicologo.controls['cidade'].disable();
   }
 
 }

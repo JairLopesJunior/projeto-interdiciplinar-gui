@@ -1,3 +1,4 @@
+import { CidadeEstadoService } from './../cadastro/cidade-estado.service';
 import { UsuarioService } from '../home/usuario.service';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -9,6 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./cadastro-usuario.component.css']
 })
 export class CadastroUsuarioComponent implements OnInit {
+
+  estados = this.cidadeEstadoService.allEstados();
+  cidades: Array<any>;
   
   cadastroCliente: FormGroup;
 
@@ -16,7 +20,8 @@ export class CadastroUsuarioComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private _usuarioService: UsuarioService,
-              private _router: Router) {}
+              private _router: Router,
+              private cidadeEstadoService: CidadeEstadoService) {}
 
   ngOnInit(): void {
     this.formularioCliente();
@@ -24,6 +29,16 @@ export class CadastroUsuarioComponent implements OnInit {
 
   onSubmit(): void {
     if(this.cadastroCliente.valid) {
+      const idEstado = this.cadastroCliente.get('estado');
+      this.cidadeEstadoService.allEstados().filter( (estadoFilter) => {
+        if(idEstado?.value === estadoFilter.ID) {
+          idEstado?.patchValue(estadoFilter.Nome);
+        }
+      });
+      const tipo = this.cadastroCliente.get('tipo')?.value;
+      if(+tipo === 1){
+        this.adaptarValoresParaAnonimo();
+      }
       this._usuarioService.save(this.cadastroCliente.value).subscribe({
         next: usuario => {
           alert("Salvo com sucesso.")
@@ -72,12 +87,12 @@ export class CadastroUsuarioComponent implements OnInit {
       ],
       sobreMim: ['', Validators.compose([
           Validators.required,
-          Validators.maxLength(100)
+          Validators.maxLength(350)
         ])
       ],
       relato: ['', Validators.compose([
           Validators.required,
-          Validators.maxLength(100)
+          Validators.maxLength(350)
         ])
       ],
       tipo: ['', Validators.compose([
@@ -95,5 +110,24 @@ export class CadastroUsuarioComponent implements OnInit {
       imagem: ['']
     });
   }
+
+  // Métodos privados
+  private adaptarValoresParaAnonimo(): void {
+    this.cadastroCliente.get('nome')?.patchValue('ANÔNIMO');
+    this.cadastroCliente.get('imagem')?.patchValue('');
+  }
+
+  hasEstado(): void {
+    const estado = this.cadastroCliente.get('estado')?.value;
+    if(estado || estado !== '') {
+      this.cadastroCliente.controls['cidade'].enable();
+      console.log(typeof estado)
+      const cidadesEncontradas = this.cidadeEstadoService.getCidadesPeloIdEstado(estado);
+      this.cidades = cidadesEncontradas;
+      return;
+    }
+    this.cadastroCliente.controls['cidade'].disable();
+  }
+
 
 }

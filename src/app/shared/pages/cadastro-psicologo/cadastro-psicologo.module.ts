@@ -7,7 +7,8 @@ import { CampoControlErroModule } from '../../components/campo-control-erro/camp
 import { SelectModule } from '../../components/select/select.module';
 import { CadastroPsicologoComponent } from './cadastro-psicologo.component';
 import { RouterModule } from '@angular/router';
-
+import { NgxMaskModule } from 'ngx-mask';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     SelectModule,
     FormsModule,
+    NgSelectModule,
     ReactiveFormsModule,
     CampoControlErroModule,
     AlifeFileToBase64Module,
@@ -25,7 +27,11 @@ import { RouterModule } from '@angular/router';
       {
         path: 'psicologo/:id', component: PsicologoComponent
       }
-    ])
+    ]),
+    NgxMaskModule.forRoot({
+      //dropSpecialCharacters: false, // Salva com a mascara
+      showMaskTyped: true
+    })
   ],
   exports: [
     CadastroPsicologoComponent

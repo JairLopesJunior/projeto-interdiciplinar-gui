@@ -18,9 +18,7 @@ export class UsuarioComponent implements OnInit {
   ngOnInit(): void {
     this._usuarioService.retrieveById(Number(this._activatedRoute.snapshot.paramMap.get('id'))).subscribe({
       next: usuario => {
-        console.log(usuario.imagem)
-        console.log(usuario.nome)
-        usuario.imagem = usuario.imagem ?? 'assets/imagem.png';
+        usuario.imagem = usuario.imagem !== '' ? usuario.imagem : 'assets/imagem.png';
         this.usuario = usuario
       },
       error: err => alert('Error: ' + err)

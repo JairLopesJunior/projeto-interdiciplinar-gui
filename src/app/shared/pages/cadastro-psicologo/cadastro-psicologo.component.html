@@ -35,7 +35,7 @@
             </div>
         </div>
     </div> 
-    
+
     <div class="row mb-3">
         <div class="col">
             <div class="form-group" [ngClass]="aplicaCssErro('telefone')">
@@ -43,7 +43,8 @@
                 <input  type="text"
                         class="form-control"
                         formControlName="telefone"
-                        id="telefone">
+                        id="telefone"
+                        mask="(00) 0 0000-0000||(00) 0000-0000">
 
                 <app-campo-control-erro
                     [mostrarErro]="verificaValidTouched('telefone')" 
@@ -55,10 +56,11 @@
         <div class="col">
             <div class="form-group" [ngClass]="aplicaCssErro('crp')">
                 <label for="inputState">CRP</label>
-                <input  type="number"
+                <input  type="text"
                         class="form-control"
                         formControlName="crp"
-                        id="crp">
+                        id="crp"
+                        mask="00/0000">
 
                 <app-campo-control-erro 
                     [mostrarErro]="verificaValidTouched('crp')" 
@@ -87,10 +89,13 @@
         <div class="col">
             <div class="form-group" [ngClass]="aplicaCssErro('experiencia')">
                 <label for="inputState">Experiência</label>
-                <input  type="text"
+                <ng-select [multiple]="true" formControlName="experiencia">
+                    <ng-option *ngFor="let xp of experiencias" [value]="xp.experiencia">{{xp.experiencia}}</ng-option>
+                </ng-select>
+                <!--<input  type="text"
                         class="form-control"
                         formControlName="experiencia"
-                        id="experiencia">
+                        id="experiencia">-->
 
                 <app-campo-control-erro 
                     [mostrarErro]="verificaValidTouched('experiencia')" 
@@ -119,9 +124,9 @@
         <div class="form-group col-md-4">
             <div class="form-group" [ngClass]="aplicaCssErro('estado')">
                 <label for="inputState">Estado</label>
-                <select id="inputState" class="form-control" formControlName="estado">
-                    <option selected>Choose...</option>
-                    <option>...</option>
+                <select (change)="hasEstado()" id="inputState" class="form-control" formControlName="estado">
+                    <option></option>
+                    <option *ngFor="let estado of estados" [value]="estado.ID">{{ estado.Nome }}</option>
                 </select>
 
                 <app-campo-control-erro 
@@ -135,8 +140,7 @@
             <div class="form-group" [ngClass]="aplicaCssErro('cidade')">
                 <label for="inputState">Cidade</label>
                 <select id="inputState" class="form-control" formControlName="cidade">
-                    <option selected>Choose...</option>
-                    <option>...</option>
+                    <option *ngFor="let cidade of cidades" [value]="cidade.Nome" selected>{{ cidade.Nome }}</option>
                 </select>
 
                 <app-campo-control-erro 

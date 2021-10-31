@@ -8,12 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CardComponent implements OnInit {
 
   @Input() nome: string = '';
-  @Input() relato: string = '';
+  @Input() relato: string | string[] = '';
   @Input() imagem: string | undefined = '';
   @Input() id: number = 0;
   @Input() qualTipo: string = '';
-
-  imagemPadrao: string | undefined;
 
   constructor() { }
 
@@ -23,10 +21,7 @@ export class CardComponent implements OnInit {
   }
 
   definirImagem() {
-    if( this.imagem) {
-      this.imagemPadrao = this.imagem;
-    }
-    this.imagemPadrao = 'assets/imagem.png';
+    this.imagem = this.imagem !== '' ? this.imagem : 'assets/imagem.png';
   }
 
   modificandoNome() {
