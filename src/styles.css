@@ -6,3 +6,16 @@
 a {
     cursor: pointer;
 }
+
+/* Override */
+.ng-select-container {
+    background-color: #00b2ff !important;
+}
+
+.ng-select .ng-arrow-wrapper .ng-arrow {
+    border-color: black transparent transparent !important;
+}
+
+.ng-select .ng-clear-wrapper {
+    color: black;
+}
