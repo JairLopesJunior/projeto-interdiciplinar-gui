@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1635798660208,
+  "timestamp": 1636058414614,
   "index": "/projeto-interdiciplinar-gui/index.html",
   "assetGroups": [
     {
@@ -18,7 +18,7 @@
         "/projeto-interdiciplinar-gui/polyfills.f47b0da69cf24a47b3ec.js",
         "/projeto-interdiciplinar-gui/runtime.140e06e595d47360fa8b.js",
         "/projeto-interdiciplinar-gui/scripts.fbd01adc1da0f52e7a7f.js",
-        "/projeto-interdiciplinar-gui/styles.f3735d09c45196e42ab3.css"
+        "/projeto-interdiciplinar-gui/styles.df50fd0d24933ce1905b.css"
       ],
       "patterns": []
     },
@@ -93,13 +93,13 @@
     "/projeto-interdiciplinar-gui/fa-solid-900.be9ee23c0c6390141475.ttf": "eb8914f6b1797b45ee0883e6089d92695d9f9441",
     "/projeto-interdiciplinar-gui/fa-solid-900.eeccf4f66002c6f2ba24.woff": "a22acd7697f36e7d4cc31a853c70e776eac54bb1",
     "/projeto-interdiciplinar-gui/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/projeto-interdiciplinar-gui/index.html": "b778b2d5a77a65458fb12d8b2a2261fe7f640962",
+    "/projeto-interdiciplinar-gui/index.html": "dd97da716a971ce25bdcac660a097435f054c7d4",
     "/projeto-interdiciplinar-gui/main.f062d02f74db7905d06a.js": "ecc9333d18190f2c7915f5e08333632cd48a93be",
-    "/projeto-interdiciplinar-gui/manifest.webmanifest": "5b7f09d320c4a5da51496a3342953e4a36306bb3",
+    "/projeto-interdiciplinar-gui/manifest.webmanifest": "9e26c575be32720ea5329e665c1323bf239df9a2",
     "/projeto-interdiciplinar-gui/polyfills.f47b0da69cf24a47b3ec.js": "582bae135a9f2e39c9572127218312ae39af52ad",
     "/projeto-interdiciplinar-gui/runtime.140e06e595d47360fa8b.js": "12ee3cb057cb6ff9f87d86bbccb5bf23b1d3d173",
     "/projeto-interdiciplinar-gui/scripts.fbd01adc1da0f52e7a7f.js": "23abb6af32012326ad2aedb1580b4c10cc6eaeab",
-    "/projeto-interdiciplinar-gui/styles.f3735d09c45196e42ab3.css": "5a08673e19a886572c9a25d81da170c48533ffd5"
+    "/projeto-interdiciplinar-gui/styles.df50fd0d24933ce1905b.css": "c8e643e7aaa0a9ec54a8a8eda43daa270ad22920"
   },
   "navigationUrls": [
     {
