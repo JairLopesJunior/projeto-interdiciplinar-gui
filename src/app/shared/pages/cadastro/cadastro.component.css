@@ -1,11 +1,25 @@
 button {
-    background-color: #00B2FF; 
-    border-color: #00B2FF; 
-    color: white;
+  background-color: #00b2ff;
+  border-color: #00b2ff;
+  color: white;
 }
 
 button:hover {
-    background-color: white; 
-    border-color: #00B2FF; 
-    color: #00B2FF;
+  background-color: white;
+  border-color: #00b2ff;
+  color: #00b2ff;
+}
+
+.linha {
+  border-left: 1px solid rgba(0, 178, 255, 0.3);
+}
+
+@media (max-width: 991px) {
+  .linha {
+    border-left: none;
+  }
+
+  .alinhaItens {
+    text-align: center;
+  }
 }
