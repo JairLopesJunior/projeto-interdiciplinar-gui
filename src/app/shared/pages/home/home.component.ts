@@ -17,6 +17,24 @@ export class HomeComponent implements OnInit {
 
   filterBy: string = "";
 
+  experiencias = [
+    { experiencia: 'Adolescência' },
+    { experiencia: 'Ansiedade' },
+    { experiencia: 'Assédio Moral' },
+    { experiencia: 'Autoconhecimento' },
+    { experiencia: 'Câncer' },
+    { experiencia: 'Conflitos Amorosos' },
+    { experiencia: 'Conflitos Familiares' },
+    { experiencia: 'Depressão' },
+    { experiencia: 'Estresse' },
+    { experiencia: 'Idade Adulta' },
+    { experiencia: 'Medos' },
+    { experiencia: 'Morte e Luto' },
+    { experiencia: 'Orientação Profissional' },
+    { experiencia: 'Separação' },
+    { experiencia: 'Traumas' },
+  ];
+
   constructor(private psicologoService: PsicologoService) { }
 
   ngOnInit(): void {
@@ -36,7 +54,11 @@ export class HomeComponent implements OnInit {
   set filter(value: string) { 
     this.filterBy = value;
 
-    this.psicologos = this.filteredPsicologos.filter((psicologo: Psicologo) => psicologo.nome.toLocaleLowerCase().indexOf(this.filterBy.toLocaleLowerCase()) > -1);
+    if(value === ''){
+      this.psicologos = this.filteredPsicologos;
+      return;
+    }
+    this.psicologos = this.filteredPsicologos.filter((psicologo: Psicologo) => psicologo.experiencia.indexOf(this.filterBy) > -1);
   }
 
   get filter() { 

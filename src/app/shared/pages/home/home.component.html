@@ -2,12 +2,10 @@
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-8">
       <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised
+        Somos a maior plataforma de atendimento psicológico online. Temos os melhores profissionais 
+        reconhecidos no Brasil em diversas especialidades no ramo psicológico, nossos atendimentos são 
+        seguros, fáceis e totalmente privado para garantir maior segurança e credibilidade ao paciente, 
+        o seu problema é o nosso compromisso!
       </p>
     </div>
 
@@ -24,7 +22,15 @@
   <div class="row">
     <div class="input-group mb-3 mt-3">
       <label style="margin-top: 0.5rem; margin-right: 1rem">Filtre por:</label>
-      <input [(ngModel)]="filter" placeholder="Nome" class="form-control" />
+        <select
+          class="form-control"
+          [(ngModel)]="filter"
+        >
+          <option></option>
+          <option *ngFor="let experiencia of experiencias" [value]="experiencia.experiencia">
+            {{ experiencia.experiencia }}
+          </option>
+        </select>
     </div>
   </div>
 
