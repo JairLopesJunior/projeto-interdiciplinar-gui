@@ -12,7 +12,7 @@
   <div class="row mb-3">
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
       <div class="form-group" [ngClass]="aplicaCssErro('nome')">
-        <label for="inputState">Nome</label>
+        <label for="inputState">Nome *</label>
         <input
           type="text"
           class="form-control"
@@ -30,7 +30,7 @@
 
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
       <div class="form-group" [ngClass]="aplicaCssErro('profissao')">
-        <label for="inputState">Profissao</label>
+        <label for="inputState">Profissao *</label>
         <input
           type="text"
           class="form-control"
@@ -68,7 +68,7 @@
 
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
       <div class="form-group" [ngClass]="aplicaCssErro('relato')">
-        <label for="inputState">Relato</label>
+        <label for="inputState">Relato *</label>
         <input
           type="text"
           class="form-control"
@@ -88,7 +88,7 @@
   <div class="row mb-3">
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
       <div class="form-group" [ngClass]="aplicaCssErro('tipo')">
-        <label for="inputState">Tipo</label>
+        <label for="inputState">Tipo *</label>
         <select id="inputState" class="form-control" formControlName="tipo">
           <option value="0" selected>Público</option>
           <option value="1">Anônimo</option>
@@ -104,7 +104,7 @@
 
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
       <div class="form-group" [ngClass]="aplicaCssErro('estado')">
-        <label for="inputState">Estado</label>
+        <label for="inputState">Estado *</label>
         <select
           (change)="hasEstado()"
           id="inputState"
@@ -127,7 +127,7 @@
 
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
       <div class="form-group" [ngClass]="aplicaCssErro('cidade')">
-        <label for="inputState">Cidade</label>
+        <label for="inputState">Cidade *</label>
         <select id="inputState" class="form-control" formControlName="cidade">
           <option *ngFor="let cidade of cidades" [value]="cidade.Nome" selected>
             {{ cidade.Nome }}

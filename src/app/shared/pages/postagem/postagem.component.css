@@ -10,3 +10,7 @@
     border-color: #00B2FF; 
     color: #00B2FF;
 }
+
+p {
+    text-align: justify;
+}

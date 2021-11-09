@@ -12,7 +12,7 @@
   <div class="row mb-3">
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
       <div class="form-group" [ngClass]="aplicaCssErro('nome')">
-        <label for="inputState">Nome</label>
+        <label for="inputState">Nome *</label>
         <input
           type="text"
           class="form-control"
@@ -30,7 +30,7 @@
 
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
       <div class="form-group" [ngClass]="aplicaCssErro('email')">
-        <label for="inputState">Email</label>
+        <label for="inputState">Email *</label>
         <input
           type="text"
           class="form-control"
@@ -50,7 +50,7 @@
   <div class="row mb-3">
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
       <div class="form-group" [ngClass]="aplicaCssErro('telefone')">
-        <label for="inputState">Telefone</label>
+        <label for="inputState">Telefone *</label>
         <input
           type="text"
           class="form-control"
@@ -69,7 +69,7 @@
 
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
       <div class="form-group" [ngClass]="aplicaCssErro('crp')">
-        <label for="inputState">CRP</label>
+        <label for="inputState">CRP *</label>
         <input
           type="text"
           class="form-control"
@@ -90,7 +90,7 @@
   <div class="row mb-3">
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
       <div class="form-group" [ngClass]="aplicaCssErro('preco')">
-        <label for="inputState">Preço</label>
+        <label for="inputState">Preço *</label>
         <input
           type="text"
           class="form-control"
@@ -108,7 +108,7 @@
 
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
       <div class="form-group" [ngClass]="aplicaCssErro('experiencia')">
-        <label for="inputState">Experiência</label>
+        <label for="inputState">Experiência *</label>
         <ng-select [multiple]="true" formControlName="experiencia">
           <ng-option *ngFor="let xp of experiencias" [value]="xp.experiencia">{{
             xp.experiencia
@@ -149,7 +149,7 @@
 
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
       <div class="form-group" [ngClass]="aplicaCssErro('estado')">
-        <label for="inputState">Estado</label>
+        <label for="inputState">Estado *</label>
         <select
           (change)="hasEstado()"
           id="inputState"
@@ -172,7 +172,7 @@
 
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
       <div class="form-group" [ngClass]="aplicaCssErro('cidade')">
-        <label for="inputState">Cidade</label>
+        <label for="inputState">Cidade *</label>
         <select id="inputState" class="form-control" formControlName="cidade">
           <option *ngFor="let cidade of cidades" [value]="cidade.Nome" selected>
             {{ cidade.Nome }}
@@ -193,7 +193,7 @@
       class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
       [ngClass]="aplicaCssErro('sobreMim')"
     >
-      <label for="inputState">Sobre mim</label>
+      <label for="inputState">Sobre mim *</label>
       <input
         type="text"
         class="form-control"

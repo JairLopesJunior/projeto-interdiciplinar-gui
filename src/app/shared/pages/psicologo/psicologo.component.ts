@@ -10,6 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PsicologoComponent implements OnInit {
 
+  telefone: boolean = false;
+
   psicologo: Psicologo;
   experiencias: string[];
 
@@ -25,6 +27,7 @@ export class PsicologoComponent implements OnInit {
       next: psicologo => {
         this.validarImagem(psicologo.imagem);
         this.formatarExperiencias(psicologo.experiencia);
+        this.telefone = psicologo.telefone.length === 10 ? true : false;
         this.psicologo = psicologo
       },
       error: err => alert('Error: ' + err)
