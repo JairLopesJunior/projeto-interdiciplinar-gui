@@ -15,14 +15,9 @@ p {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     line-height: 16px;
-}
-
-h5 {
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .btn {
@@ -37,3 +32,4 @@ h5 {
     border-color: #00B2FF; 
     color: #00B2FF;
 }
+
