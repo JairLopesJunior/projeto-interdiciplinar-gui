@@ -1,3 +1,22 @@
 nav {
     background-color: #00B2FF !important;
 }
+
+#navbarSupportedContent {
+    margin-right: 2rem;
+}
+
+@media (max-width: 991px) {
+    .navbar-nav {
+        margin: 10px;
+        border-bottom: 1px solid white;
+    }
+
+    .navbar-toggler {
+        margin-left: 10px;
+    }
+
+    #navbarSupportedContent {
+        margin-right: 10px !important;
+    }
+}

@@ -24,7 +24,7 @@
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@ng-select/ng-select": "^7.3.0",
     "alife-file-to-base64": "0.0.4",
-    "bootstrap": "^5.1.1",
+    "bootstrap": "^5.1.3",
     "cidades-estados-brasil-json": "^1.0.3",
     "ngx-mask": "^12.0.0",
     "rxjs": "~6.6.0",
