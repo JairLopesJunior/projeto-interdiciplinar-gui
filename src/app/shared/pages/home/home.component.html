@@ -1,11 +1,13 @@
+<app-loading [hasLoading]="hasLoading"></app-loading>
 <div class="container mt-5" style="max-width: 60vw">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-8">
       <p>
-        Somos a maior plataforma de atendimento psicológico online. Temos os melhores profissionais 
-        reconhecidos no Brasil em diversas especialidades no ramo psicológico, nossos atendimentos são 
-        seguros, fáceis e totalmente privado para garantir maior segurança e credibilidade ao paciente, 
-        o seu problema é o nosso compromisso!
+        Somos a maior plataforma de atendimento psicológico online. Temos os
+        melhores profissionais reconhecidos no Brasil em diversas especialidades
+        no ramo psicológico, nossos atendimentos são seguros, fáceis e
+        totalmente privado para garantir maior segurança e credibilidade ao
+        paciente, o seu problema é o nosso compromisso!
       </p>
     </div>
 
@@ -22,21 +24,24 @@
   <div class="row">
     <div class="input-group mb-0 mt-5">
       <label style="margin-top: 0.5rem; margin-right: 1rem">Filtre por:</label>
-        <select
-          class="form-control"
-          [(ngModel)]="filter"
+      <select class="form-control" [(ngModel)]="filter">
+        <option></option>
+        <option
+          *ngFor="let experiencia of experiencias"
+          [value]="experiencia.experiencia"
         >
-          <option></option>
-          <option *ngFor="let experiencia of experiencias" [value]="experiencia.experiencia">
-            {{ experiencia.experiencia }}
-          </option>
-        </select>
+          {{ experiencia.experiencia }}
+        </option>
+      </select>
     </div>
   </div>
 
   <!-- Cards -->
   <div class="row mt-4" style="margin-bottom: 5rem">
-    <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-3" *ngFor="let psicologo of psicologos">
+    <div
+      class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-3"
+      *ngFor="let psicologo of psicologos"
+    >
       <app-card
         [relato]="psicologo.experiencia"
         [nome]="psicologo.nome"

@@ -1,34 +1,33 @@
-<div class="container mt-5" style="max-width: 60vw;">
+<app-loading [hasLoading]="hasLoading"></app-loading>
+<div class="container mt-5" style="max-width: 60vw">
+  <!-- Texto -->
+  <div class="row d-flex justify-content-center">
+    <p>
+      Compartilhe suas experiências de vida, isso vai ajudar outras pessoas com
+      problemas semelhantes ou encoraja-las com outros problemas e assim mostrar
+      que tudo pode ser resolvido para que o principal objetivo da vida seja
+      alcançado, aprender com o passado e construir um futuro melhor.
+    </p>
+  </div>
 
-    <!-- Texto -->
-    <div class="row d-flex justify-content-center">
-      <p>
-        Compartilhe suas experiências de vida, isso vai ajudar outras pessoas com problemas semelhantes 
-        ou encoraja-las com outros problemas e assim mostrar que tudo pode ser resolvido para que o 
-        principal objetivo da vida seja alcançado, aprender com o passado e construir um futuro melhor.
-      </p>
-    </div>
-  
-    <!-- Button -->
-    <div class="col text-center mb-5">
-      <button [routerLink]="['/cadastro/usuario']" class="btn">
-        CADASTRE-SE
-      </button>
-    </div>
-  
-    <!-- Cards -->
-    <div class="row" style="margin-bottom: 5rem;">
-      <div class="col-sm-4 mb-3" *ngFor="let usuario of usuarios">
-        <app-card [relato]="usuario.relato" 
-                  [nome]="usuario.nome"
-                  [imagem]="usuario.imagem"
-                  [id]="usuario.id"
-                  [qualTipo]="this.u">
-        </app-card>
-      </div>
+  <!-- Button -->
+  <div class="col text-center mb-5">
+    <button [routerLink]="['/cadastro/usuario']" class="btn">
+      CADASTRE-SE
+    </button>
+  </div>
+
+  <!-- Cards -->
+  <div class="row" style="margin-bottom: 5rem">
+    <div class="col-sm-4 mb-3" *ngFor="let usuario of usuarios">
+      <app-card
+        [relato]="usuario.relato"
+        [nome]="usuario.nome"
+        [imagem]="usuario.imagem"
+        [id]="usuario.id"
+        [qualTipo]="this.u"
+      >
+      </app-card>
     </div>
   </div>
-  
-  
-  
-  
+</div>

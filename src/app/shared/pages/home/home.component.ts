@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Psicologo } from 'src/app/models/psicologo';
+import { BodyStyleComponent } from '../../utils/body-style/body-style.component';
 import { PsicologoService } from '../cadastro-psicologo/psicologo.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  hasLoading = true;
 
   p: string = 'psicologo';
 
@@ -15,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   filteredPsicologos: Psicologo[] = [];
 
-  filterBy: string = "";
+  filterBy: string = '';
 
   experiencias = [
     { experiencia: 'Adolescência' },
@@ -35,33 +37,43 @@ export class HomeComponent implements OnInit {
     { experiencia: 'Traumas' },
   ];
 
-  constructor(private psicologoService: PsicologoService) { }
+  constructor(private psicologoService: PsicologoService) {}
 
   ngOnInit(): void {
     this.retrieveAll();
   }
 
-  retrieveAll(): void{
+  retrieveAll(): void {
+    BodyStyleComponent.definirOpacity('0.5');
     this.psicologoService.retriveAll().subscribe({
-        next: psicologos => {
-          this.psicologos = psicologos;
-          this.filteredPsicologos = this.psicologos;
-        },
-        error: err => alert('Error: ' + err)
-    })
+      next: (psicologos) => {
+        this.psicologos = psicologos;
+        this.filteredPsicologos = this.psicologos;
+        BodyStyleComponent.definirOpacity('1');
+        this.hasLoading = false;
+      },
+      error: (err) => {
+        alert('Error: ' + err);
+        BodyStyleComponent.definirOpacity('1');
+        this.hasLoading = false;
+      },
+    });
   }
 
-  set filter(value: string) { 
+  set filter(value: string) {
     this.filterBy = value;
 
-    if(value === ''){
+    if (value === '') {
       this.psicologos = this.filteredPsicologos;
       return;
     }
-    this.psicologos = this.filteredPsicologos.filter((psicologo: Psicologo) => psicologo.experiencia.indexOf(this.filterBy) > -1);
+    this.psicologos = this.filteredPsicologos.filter(
+      (psicologo: Psicologo) =>
+        psicologo.experiencia.indexOf(this.filterBy) > -1
+    );
   }
 
-  get filter() { 
+  get filter() {
     return this.filterBy;
   }
 }
