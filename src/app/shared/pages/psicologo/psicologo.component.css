@@ -89,3 +89,62 @@ p {
 .component-p:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
+
+@media (max-width: 1200px) {
+    .divPai {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .linhaImagem {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .circle {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .infPsicologo {
+        width: 100%;
+    }
+
+    h3, h5, .particular, .redes {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .infPreco {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .infConsulta {
+        width: 100%;;
+    }
+
+    .durConsulta {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .redeSociais {
+        width: 100%;
+    }
+
+    .divPrincipal {
+        display: flex;
+        justify-content: center;
+    }
+
+    .compartilhe {
+        display: flex;
+        align-items: center;
+    }
+}

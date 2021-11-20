@@ -9,7 +9,7 @@
         <div *ngIf="qualTipo === 'usuario'; then usuario else psicologo"></div>
 
         <ng-template #usuario>
-            <button [routerLink]="['/usuario', id]" class="btn mb-3" style="width: 50%;">
+            <button [routerLink]="['/usuario', id]" class="btn mb-3">
                 SAIBA MAIS
             </button>
         </ng-template>
