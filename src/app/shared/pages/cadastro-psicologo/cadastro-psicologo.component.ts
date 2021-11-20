@@ -50,9 +50,10 @@ export class CadastroPsicologoComponent implements OnInit {
       const idEstado = this.cadastroPsicologo.get('estado');
       this.cidadeEstadoService.allEstados().filter( (estadoFilter) => {
         if(idEstado?.value === estadoFilter.ID) {
-          idEstado?.patchValue(estadoFilter.Nome);
+          idEstado?.patchValue(estadoFilter.ID);
         }
       });
+      console.log(idEstado);
       this._psicologoService.save(this.cadastroPsicologo.value).subscribe({
         next: psicologo => {
           alert("Salvo com sucesso.")
@@ -149,7 +150,6 @@ export class CadastroPsicologoComponent implements OnInit {
     const estado = this.cadastroPsicologo.get('estado')?.value;
     if(estado || estado !== '') {
       this.cadastroPsicologo.controls['cidade'].enable();
-      console.log(typeof estado)
       const cidadesEncontradas = this.cidadeEstadoService.getCidadesPeloIdEstado(estado);
       this.cidades = cidadesEncontradas;
       return;
