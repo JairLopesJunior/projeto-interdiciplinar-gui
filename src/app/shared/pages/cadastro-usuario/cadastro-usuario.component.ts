@@ -13,6 +13,8 @@ export class CadastroUsuarioComponent implements OnInit {
 
   estados = this.cidadeEstadoService.allEstados();
   cidades: Array<any>;
+
+  idEstado = '';
   
   cadastroCliente: FormGroup;
 
@@ -33,6 +35,7 @@ export class CadastroUsuarioComponent implements OnInit {
       this.cidadeEstadoService.allEstados().filter( (estadoFilter) => {
         if(idEstado?.value === estadoFilter.ID) {
           idEstado?.patchValue(estadoFilter.Nome);
+          this.idEstado = estadoFilter.ID;
         }
       });
       const tipo = this.cadastroCliente.get('tipo')?.value;
@@ -52,6 +55,7 @@ export class CadastroUsuarioComponent implements OnInit {
           }
         }
       });
+      idEstado?.patchValue(this.idEstado);
     }
   }
 
