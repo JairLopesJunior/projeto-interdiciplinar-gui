@@ -154,6 +154,7 @@ export class CadastroPsicologoComponent implements OnInit {
       this.cidades = cidadesEncontradas;
       return;
     }
+    this.cadastroPsicologo.controls['cidade'].patchValue('');
     this.cadastroPsicologo.controls['cidade'].disable();
   }
 
