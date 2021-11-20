@@ -121,11 +121,11 @@ export class CadastroUsuarioComponent implements OnInit {
     const estado = this.cadastroCliente.get('estado')?.value;
     if(estado || estado !== '') {
       this.cadastroCliente.controls['cidade'].enable();
-      console.log(typeof estado)
       const cidadesEncontradas = this.cidadeEstadoService.getCidadesPeloIdEstado(estado);
       this.cidades = cidadesEncontradas;
       return;
     }
+    this.cadastroCliente.controls['cidade'].patchValue('');
     this.cadastroCliente.controls['cidade'].disable();
   }
 
