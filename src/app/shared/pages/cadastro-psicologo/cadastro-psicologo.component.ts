@@ -13,6 +13,7 @@ export class CadastroPsicologoComponent implements OnInit {
 
   estados = this.cidadeEstadoService.allEstados();
   cidades: Array<any>;
+  idEstado = '';
 
   experiencias = [
       { experiencia: 'Adolescência' },
@@ -50,7 +51,8 @@ export class CadastroPsicologoComponent implements OnInit {
       const idEstado = this.cadastroPsicologo.get('estado');
       this.cidadeEstadoService.allEstados().filter( (estadoFilter) => {
         if(idEstado?.value === estadoFilter.ID) {
-          idEstado?.patchValue(estadoFilter.ID);
+          idEstado?.patchValue(estadoFilter.Nome);
+          this.idEstado = estadoFilter.ID;
         }
       });
       console.log(idEstado);
@@ -67,6 +69,7 @@ export class CadastroPsicologoComponent implements OnInit {
           }
         }
       });
+      idEstado?.patchValue(this.idEstado);
     }
   }
 
