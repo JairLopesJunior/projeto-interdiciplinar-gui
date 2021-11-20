@@ -16,3 +16,24 @@ img{
     margin-left: .5em;
     margin-bottom: 1.8em;
 }
+
+@media (max-width: 1200px) {
+    .divPai {
+        width: 100% !important;
+    }
+    .circle {
+        width: 140px;
+    }
+}
+
+@media (max-width: 991px) {
+    .linhaImagem {
+        display: flex;
+        justify-content: center;
+    }
+
+    h3, h5 {
+        display: flex;
+        justify-content: center;
+    }
+}
