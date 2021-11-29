@@ -25,3 +25,45 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Directory Descriptive:
+
+```
+├── dist
+│   └── projeto-interdiciplinar
+│       └── assets
+│           └── icons
+├── docs
+│   └── assets
+│       └── icons
+└── src
+    ├── app
+    │   ├── models
+    │   └── shared
+    │       ├── components
+    │       │   ├── campo-control-erro
+    │       │   ├── card
+    │       │   ├── file
+    │       │   ├── footer
+    │       │   ├── loading
+    │       │   ├── navbar
+    │       │   └── select
+    │       ├── pages
+    │       │   ├── cadastro
+    │       │   ├── cadastro-psicologo
+    │       │   ├── cadastro-usuario
+    │       │   ├── contato
+    │       │   ├── home
+    │       │   ├── postagem
+    │       │   ├── psicologo
+    │       │   └── usuario
+    │       └── utils
+    │           └── body-style
+    ├── assets
+    │   └── icons
+    └── environments
+```
+
+## Access Website:
+
+- ### <a href="https://jairlopesjunior.github.io/projeto-interdiciplinar-gui/"> Site </a>
