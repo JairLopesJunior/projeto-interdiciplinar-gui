@@ -19,3 +19,7 @@ a {
 .ng-select .ng-clear-wrapper {
     color: black;
 }
+
+.form-control {
+    appearance: auto;
+}
